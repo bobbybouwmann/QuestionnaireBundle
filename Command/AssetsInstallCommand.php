@@ -40,7 +40,7 @@ class AssetsInstallCommand extends ContainerAwareCommand
         );
 
         // mirror CSS
-        $originDir = $bundleDir . '/../questionnaire/css';
+        $originDir = $bundleDir . '/../questionnaire/web/css';
         $targetDir = $bundleDir . '/Resources/public/css';
 
         if (!$filesystem->exists($targetDir)) {
@@ -55,7 +55,7 @@ class AssetsInstallCommand extends ContainerAwareCommand
         );
 
         // mirror JS
-        $originDir = $bundleDir . '/../questionnaire/js';
+        $originDir = $bundleDir . '/../questionnaire/web/js';
         $targetDir = $bundleDir . '/Resources/public/js';
 
         if (!$filesystem->exists($targetDir)) {
