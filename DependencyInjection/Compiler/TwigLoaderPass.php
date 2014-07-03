@@ -29,7 +29,7 @@ class TwigLoaderPass implements CompilerPassInterface
             return;
         }
 
-        $path = $container->getParameter('kernel.root_dir') . '/../vendor/qaraqter/questionnaire/twig';
+        $path = $container->getParameter('kernel.root_dir') . '/../vendor/qaraqter/questionnaire/source/twig';
 
         $container->getDefinition('twig.loader.filesystem')
             ->addMethodCall('addPath', array($path, 'Questionnaire'))
