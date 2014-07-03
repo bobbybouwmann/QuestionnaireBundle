@@ -5,3 +5,7 @@ services:
 #    qaraqter_questionnaire.example:
 #        class: %qaraqter_questionnaire.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+   qaraqter_questionnaire.twig.extension.questionnaire:
+       class: Qaraqter\QuestionnaireBundle\Twig\QuestionnaireExtension
+       tags: [{ name: twig.extension }]
