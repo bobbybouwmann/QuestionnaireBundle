@@ -1,0 +1,54 @@
+{% block multiple_choice_question_widget %}
+	{% set question = question(form) %}
+	{% include '@Questionnaire/types/question.radio.html.twig' %}
+{% endblock %}
+
+{% block form %}
+{% spaceless %}
+	{% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
+	{{ form_start(form) }}
+		<article class="question panel panel-default" id="questionnaire">
+			{% block form_header %}
+			{% spaceless %}
+				<div class="panel-heading">
+					<div class="panel-title">
+						{% if category.title is defined %}
+							{{ bootstrap.title(category.title, { 'icon': 'question-circle', 'subtitle': true  }) }}
+						{% endif %}
+						{% if category.description is defined %}
+							{{ bootstrap.title(category.description, { 'subtitle': true }) }}
+						{% endif %}
+					</div>
+				</div>
+			{% endspaceless %}
+			{% endblock form_header %}
+
+			{% block form_intro %}
+			{% spaceless %}
+				<div class="answers">
+					{% if introtext is defined %}
+						{% include 'layout/question.intro.text.html.twig' %}
+					{% endif %}
+					{{ form_widget(form) }}
+				</div>
+			{% endspaceless %}
+			{% endblock form_intro %}
+
+			{% block form_footer %}
+			{% spaceless %}
+				<div class="panel-footer">
+					{{ bootstrap.link("Vorige", "#", { 'class': 'btn-default pull-left', 'icon': 'chevron-left' }) }}
+					{{ bootstrap.button("Volgende", "submit", { 'class': 'btn-primary pull-right', 'icon': 'chevron-right', 'icon-align': 'right' }) }}
+					{% include 'layout/question.pagination.html.twig' %}
+				</div>
+			{% endspaceless %}
+			{% endblock form_footer %}
+		</article>
+	{{ form_end(form) }}
+{% endspaceless %}
+{% endblock form %}
+
+{% block form_rest %}
+{% spaceless %}
+{% endspaceless %}
+{% endblock form_rest %}
