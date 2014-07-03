@@ -1,3 +1,5 @@
+/vendor
+
 # Eclipse files
 /.buildpath
 /.project
