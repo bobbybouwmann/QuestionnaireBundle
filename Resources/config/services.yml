@@ -1,11 +1,31 @@
 parameters:
-#    qaraqter_questionnaire.example.class: Qaraqter\QuestionnaireBundle\Example
+    qaraqter_questionnaire.twig.extension.questionnaire.class: Qaraqter\QuestionnaireBundle\Twig\QuestionnaireExtension
 
 services:
-#    qaraqter_questionnaire.example:
-#        class: %qaraqter_questionnaire.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    qaraqter_questionnaire.twig.extension.questionnaire:
+        class: %qaraqter_questionnaire.twig.extension.questionnaire.class%
+        tags: [{ name: twig.extension }]
+       
+    qaraqter_questionnaire.form_type.header:
+        class: Qaraqter\QuestionnaireBundle\Form\Type\HeaderType
+        tags: [{ name: form.type, alias: header }]
 
-   qaraqter_questionnaire.twig.extension.questionnaire:
-       class: Qaraqter\QuestionnaireBundle\Twig\QuestionnaireExtension
-       tags: [{ name: twig.extension }]
+    qaraqter_questionnaire.form_type.body:
+        class: Qaraqter\QuestionnaireBundle\Form\Type\BodyType
+        tags: [{ name: form.type, alias: body }]
+
+    qaraqter_questionnaire.form_type.footer:
+        class: Qaraqter\QuestionnaireBundle\Form\Type\FooterType
+        tags: [{ name: form.type, alias: footer }]
+
+    qaraqter_questionnaire.form_type.previous:
+        class: Qaraqter\QuestionnaireBundle\Form\Type\PreviousType
+        tags: [{ name: form.type, alias: previous }]
+
+    qaraqter_questionnaire.form_type.next:
+        class: Qaraqter\QuestionnaireBundle\Form\Type\NextType
+        tags: [{ name: form.type, alias: next }]
+    
+    qaraqter_questionnaire.form_extension.form_type:
+        class: Qaraqter\QuestionnaireBundle\Form\Extension\FormTypeExtension
+        tags: [{ name: form.type_extension, alias: form }]

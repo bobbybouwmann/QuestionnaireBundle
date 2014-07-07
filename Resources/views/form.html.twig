@@ -1,54 +1,154 @@
-{% block multiple_choice_question_widget %}
-	{% set question = question(form) %}
-	{% include '@Questionnaire/types/question.radio.html.twig' %}
-{% endblock %}
-
 {% block form %}
 {% spaceless %}
 	{% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
 	{{ form_start(form) }}
-		<article class="question panel panel-default" id="questionnaire">
-			{% block form_header %}
-			{% spaceless %}
-				<div class="panel-heading">
-					<div class="panel-title">
-						{% if category.title is defined %}
-							{{ bootstrap.title(category.title, { 'icon': 'question-circle', 'subtitle': true  }) }}
-						{% endif %}
-						{% if category.description is defined %}
-							{{ bootstrap.title(category.description, { 'subtitle': true }) }}
-						{% endif %}
-					</div>
-				</div>
-			{% endspaceless %}
-			{% endblock form_header %}
-
-			{% block form_intro %}
-			{% spaceless %}
-				<div class="answers">
-					{% if introtext is defined %}
-						{% include 'layout/question.intro.text.html.twig' %}
-					{% endif %}
-					{{ form_widget(form) }}
-				</div>
-			{% endspaceless %}
-			{% endblock form_intro %}
-
-			{% block form_footer %}
-			{% spaceless %}
-				<div class="panel-footer">
-					{{ bootstrap.link("Vorige", "#", { 'class': 'btn-default pull-left', 'icon': 'chevron-left' }) }}
-					{{ bootstrap.button("Volgende", "submit", { 'class': 'btn-primary pull-right', 'icon': 'chevron-right', 'icon-align': 'right' }) }}
-					{% include 'layout/question.pagination.html.twig' %}
-				</div>
-			{% endspaceless %}
-			{% endblock form_footer %}
+		<article id="questionnaire" class="question panel panel-default">
+		    {{ form_widget(form) }}
 		</article>
 	{{ form_end(form) }}
 {% endspaceless %}
 {% endblock form %}
 
-{% block form_rest %}
+{% block form_widget_compound %}
 {% spaceless %}
+    {% if container %}<div {{ block('widget_container_attributes') }}>{% endif %}
+        {% if form.parent is empty %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ block('form_rows') }}
+        {{ form_rest(form) }}
+    {% if container %}</div>{% endif %}
 {% endspaceless %}
-{% endblock form_rest %}
+{% endblock form_widget_compound %}
+
+{% block form_row %}
+{% spaceless %}
+    {% if container %}<div class="panel panel-default">{% endif %}
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    {% if container %}</div>{% endif %}
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block header_widget %}
+{% spaceless %}
+	{% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
+    {% set category = {title: 'category.title', description: 'category.description'} %}
+	<div class="panel-heading">
+		<div class="panel-title">
+			{% if category.title is defined %}
+				{{ bootstrap.title(category.title, { 'icon': 'question-circle', 'subtitle': true  }) }}
+			{% endif %}
+			{% if category.description is defined %}
+				{{ bootstrap.title(category.description, { 'subtitle': true }) }}
+			{% endif %}
+		</div>
+	</div>
+{% endspaceless %}
+{% endblock header_widget %}
+
+{% block body_widget %}
+{% spaceless %}
+    <div class="answers">
+	    <div {{ block('widget_container_attributes') }}>
+	        {% if form.parent is empty %}
+	            {{ form_errors(form) }}
+	        {% endif %}
+	        {{ block('form_rows') }}
+	        {{ form_rest(form) }}
+	    </div>
+    </div>
+{% endspaceless %}
+{% endblock body_widget %}
+
+{% block footer_widget %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+        {% if form.parent is empty %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ block('form_rows') }}
+        {{ form_rest(form) }}
+    </div>
+{% endspaceless %}
+{% endblock footer_widget %}
+
+{% block form_intro %}
+{% spaceless %}
+	<div class="answers">
+		{% if introtext is defined %}
+			{% include 'layout/question.intro.text.html.twig' %}
+		{% endif %}
+		{{ form_widget(form) }}
+	</div>
+{% endspaceless %}
+{% endblock form_intro %}
+
+{% block button_row %}
+{% spaceless %}
+    {{ form_widget(form) }}
+{% endspaceless %}
+{% endblock button_row %}
+
+{% block previous_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}><i class="fa fa-chevron-left">&nbsp;</i>{{ label|trans({}, translation_domain) }}</button>
+{% endspaceless %}
+{% endblock previous_widget %}
+
+{% block next_widget %}
+{% spaceless %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}<i class="fa fa-chevron-right fa-aligned-right">&nbsp;</i></button>
+{% endspaceless %}
+{% endblock next_widget %}
+
+{# {% block form_widget %}#}
+{#     form_widget#}
+{# {% endblock form_widget %}#}
+
+{# {% block entity_widget %}#}
+{#     entity_widget#}
+{# {% endblock entity_widget %}#}
+
+{# {% block multiple_choice_question_row %}#}
+{# {% spaceless %}#}
+{#     <div class="panel panel-default">#}
+{#         {{ form_label(form) }}#}
+{# {#         {{ multiple_choice_question_errors(form) }}#}#}
+{#         {{ block('multiple_choice_question_widget') }}#}
+{#     </div>#}
+{# {% endspaceless %}#}
+{# {% endblock multiple_choice_question_row %}#}
+
+{% block multiple_choice_question_label %}
+{% spaceless %}
+    <div class="panel-heading">
+	    <div class="inner-heading mainTitle">
+			<div class="inner-title">{{ label|trans({}, translation_domain) }}</div>
+		</div>
+		<div class="inner-heading subTitle text-muted">
+			<div class="inner-title">{{ description|trans({}, translation_domain) }}</div>
+		</div>
+	</div>
+{% endspaceless %}
+{% endblock multiple_choice_question_label %}
+
+{% block multiple_choice_question_widget %}
+{% spaceless %}
+    <ul {{ block('widget_container_attributes') }}>
+    {% for child in form %}
+        <li>
+            {{ form_widget(child) }}
+            {{ form_label(child) }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endspaceless %}
+{% endblock multiple_choice_question_widget %}
