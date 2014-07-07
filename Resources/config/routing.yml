@@ -1,3 +1,0 @@
-qaraqter_questionnaire_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: QaraqterQuestionnaireBundle:Default:index }
