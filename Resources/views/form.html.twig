@@ -50,14 +50,12 @@
 
 {% block body_widget %}
 {% spaceless %}
-    <div class="answers">
-	    <div {{ block('widget_container_attributes') }}>
-	        {% if form.parent is empty %}
-	            {{ form_errors(form) }}
-	        {% endif %}
-	        {{ block('form_rows') }}
-	        {{ form_rest(form) }}
-	    </div>
+    <div {{ block('widget_container_attributes') }}>
+        {% if form.parent is empty %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ block('form_rows') }}
+        {{ form_rest(form) }}
     </div>
 {% endspaceless %}
 {% endblock body_widget %}
@@ -85,18 +83,12 @@
 {% endspaceless %}
 {% endblock form_intro %}
 
-{% block button_row %}
-{% spaceless %}
-    {{ form_widget(form) }}
-{% endspaceless %}
-{% endblock button_row %}
-
 {% block previous_widget %}
 {% spaceless %}
     {% if label is empty %}
         {% set label = name|humanize %}
     {% endif %}
-    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}><i class="fa fa-chevron-left">&nbsp;</i>{{ label|trans({}, translation_domain) }}</button>
+    <button type="{{ type|default('submit') }}" {{ block('button_attributes') }}><i class="fa fa-chevron-left">&nbsp;</i>{{ label|trans({}, translation_domain) }}</button>
 {% endspaceless %}
 {% endblock previous_widget %}
 
@@ -105,9 +97,34 @@
     {% if label is empty %}
         {% set label = name|humanize %}
     {% endif %}
-    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}<i class="fa fa-chevron-right fa-aligned-right">&nbsp;</i></button>
+    <button type="{{ type|default('submit') }}" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}<i class="fa fa-chevron-right fa-aligned-right">&nbsp;</i></button>
 {% endspaceless %}
 {% endblock next_widget %}
+
+{% block pagination_widget %}
+{% spaceless %}
+    <ul {{ block('widget_container_attributes') }}>
+        {{ block('page_widget_active') }}
+        {{ block('page_widget') }}
+    </ul>
+{% endspaceless %}
+{% endblock pagination_widget %}
+
+{% block page_widget_active %}
+{% spaceless %}
+        <li class="active">
+            <a href="#">1</a>
+        </li>
+{% endspaceless %}
+{% endblock page_widget_active %}
+
+{% block page_widget %}
+{% spaceless %}
+        <li>
+            <a href="#">2</a>
+        </li>
+{% endspaceless %}
+{% endblock page_widget %}
 
 {# {% block form_widget %}#}
 {#     form_widget#}
@@ -117,17 +134,17 @@
 {#     entity_widget#}
 {# {% endblock entity_widget %}#}
 
-{# {% block multiple_choice_question_row %}#}
+{# {% block multiple_choice_row %}#}
 {# {% spaceless %}#}
 {#     <div class="panel panel-default">#}
 {#         {{ form_label(form) }}#}
-{# {#         {{ multiple_choice_question_errors(form) }}#}#}
-{#         {{ block('multiple_choice_question_widget') }}#}
+{# {#         {{ multiple_choice_errors(form) }}#}#}
+{#         {{ block('multiple_choice_widget') }}#}
 {#     </div>#}
 {# {% endspaceless %}#}
-{# {% endblock multiple_choice_question_row %}#}
+{# {% endblock multiple_choice_row %}#}
 
-{% block multiple_choice_question_label %}
+{% block group_label %}
 {% spaceless %}
     <div class="panel-heading">
 	    <div class="inner-heading mainTitle">
@@ -138,17 +155,67 @@
 		</div>
 	</div>
 {% endspaceless %}
-{% endblock multiple_choice_question_label %}
+{% endblock group_label %}
 
-{% block multiple_choice_question_widget %}
+{% block group_widget %}
 {% spaceless %}
-    <ul {{ block('widget_container_attributes') }}>
+    <table {{ block('widget_container_attributes') }}>
+        <thead>
+            <tr>
+				<th class="title">&nbsp;</th>
+				{% for answer in form|first %}
+				    <th data-value="{{ answer.vars.value }}">{{ answer.vars.label }}</th>
+				{% endfor %}
+            </tr>
+        </thead>
+        <tbody>
     {% for child in form %}
-        <li>
-            {{ form_widget(child) }}
-            {{ form_label(child) }}
+	            <tr class="input-row">
+	                <td class="title">{{ child.vars.label|trans({}, translation_domain) }}</td>
+	                {% for answer in child %}
+	                    <td><label>{{ form_widget(answer) }}</label></td>
+	                {% endfor %}
+	            </tr>
+		    {% endfor %}
+        </tbody>
+    </table>
+{% endspaceless %}
+{% endblock group_widget %}
+
+{% block multiple_choice_label %}
+{% spaceless %}
+    <div class="panel-heading">
+	    <div class="inner-heading mainTitle">
+			<div class="inner-title">{{ label|trans({}, translation_domain) }}</div>
+		</div>
+		<div class="inner-heading subTitle text-muted">
+			<div class="inner-title">{{ description|trans({}, translation_domain) }}</div>
+		</div>
+	</div>
+{% endspaceless %}
+{% endblock multiple_choice_label %}
+
+{% block multiple_choice_widget %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+	    <ul class="list-group list-group-striped">
+		    {% for child in form %}
+		        <li class="list_group_item">
+		            {{ form_row(child) }}
         </li>
     {% endfor %}
     </ul>
+    </div>
 {% endspaceless %}
-{% endblock multiple_choice_question_widget %}
+{% endblock multiple_choice_widget %}
+
+{% block radio_row %}
+{% spaceless %}
+    <div class="radio">
+	    <label>
+            {{ form_widget(form) }}
+	        {{ label|trans({}, translation_domain) }}
+	    </label>
+    </div>
+{% endspaceless %}
+{% endblock radio_row %}
