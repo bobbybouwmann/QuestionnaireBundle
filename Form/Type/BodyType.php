@@ -34,7 +34,7 @@ class BodyType extends AbstractType
             array(
                 'label' => false,
                 'attr' => array(
-                    'class' => 'panel-body answer',
+                    'class' => 'panel-body answers',
                 ),
             )
         );
