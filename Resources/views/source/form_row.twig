@@ -1,0 +1,9 @@
+{% block form_row %}
+{% spaceless %}
+    {% if container %}<div class="panel panel-default">{% endif %}
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    {% if container %}</div>{% endif %}
+{% endspaceless %}
+{% endblock form_row %}

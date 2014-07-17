@@ -1,0 +1,10 @@
+{% block form_intro %}
+{% spaceless %}
+    <div class="answers">
+        {% if introtext is defined %}
+            {% include 'layout/question.intro.text.html.twig' %}
+        {% endif %}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_intro %}

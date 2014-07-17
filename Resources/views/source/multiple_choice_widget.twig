@@ -1,0 +1,13 @@
+{% block multiple_choice_widget %}
+{% spaceless %}
+    <div {{ block('widget_container_attributes') }}>
+        <ul class="list-group list-group-striped">
+            {% for child in form %}
+                <li class="list-group-item">
+                    {{ form_row(child) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endspaceless %}
+{% endblock multiple_choice_widget %}

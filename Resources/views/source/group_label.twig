@@ -1,0 +1,12 @@
+{% block group_label %}
+{% spaceless %}
+    <div class="panel-heading">
+        <div class="inner-heading mainTitle">
+            <div class="inner-title">{{ label|trans({}, translation_domain) }}</div>
+        </div>
+        <div class="inner-heading subTitle text-muted">
+            <div class="inner-title">{{ description|trans({}, translation_domain) }}</div>
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock group_label %}

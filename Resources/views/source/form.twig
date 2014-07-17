@@ -1,0 +1,10 @@
+{% block form %}
+{% spaceless %}
+    {% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
+    {{ form_start(form, { 'attr': { 'id': 'questionnaireForm' }}) }}
+        <article id="questionnaire" class="question panel panel-default">
+            {{ form_widget(form) }}
+        </article>
+    {{ form_end(form) }}
+{% endspaceless %}
+{% endblock form %}

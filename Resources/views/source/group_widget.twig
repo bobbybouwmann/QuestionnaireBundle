@@ -1,0 +1,24 @@
+{% block group_widget %}
+{% spaceless %}
+    <table {{ block('widget_container_attributes') }}>
+        <thead>
+            <tr>
+                <th class="title">&nbsp;</th>
+                {% for answer in form|first %}
+                    <th data-value="{{ answer.vars.value }}">{{ answer.vars.label }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+    {% for child in form %}
+                <tr class="input-row">
+                    <td class="title">{{ child.vars.label|trans({}, translation_domain) }}</td>
+                    {% for answer in child %}
+                        <td><label>{{ form_widget(answer) }}</label></td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endspaceless %}
+{% endblock group_widget %}

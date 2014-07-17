@@ -1,0 +1,10 @@
+{% block radio_row %}
+{% spaceless %}
+    <div class="radio">
+        <label>
+            {{ form_widget(form) }}
+            {{ label|trans({}, translation_domain) }}
+        </label>
+    </div>
+{% endspaceless %}
+{% endblock radio_row %}

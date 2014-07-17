@@ -1,0 +1,8 @@
+{% block pagination_widget %}
+{% spaceless %}
+    <ul {{ block('widget_container_attributes') }}>
+        {{ block('page_widget_active') }}
+        {{ block('page_widget') }}
+    </ul>
+{% endspaceless %}
+{% endblock pagination_widget %}
