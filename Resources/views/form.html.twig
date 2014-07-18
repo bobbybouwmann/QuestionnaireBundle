@@ -109,17 +109,19 @@
 {% block header_widget %}
 {% spaceless %}
     {% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
-    {% set category = {title: 'category.title', description: 'category.description'} %}
-    <div class="panel-heading">
-        <div class="panel-title">
-            {% if category.title is defined %}
-                {{ bootstrap.title(category.title, { 'icon': 'question-circle', 'subtitle': true  }) }}
-            {% endif %}
-            {% if category.description is defined %}
-                {{ bootstrap.title(category.description, { 'subtitle': true }) }}
-            {% endif %}
+    {#{% set category = {title: 'category.title', description: 'category.description'} %}#}
+    {% if category.title is defined and category.description is defined %}
+        <div class="panel-heading">
+            <div class="panel-title{% if category.title is defined and category.description is defined %} withSubtitle{% endif %}">
+                {% if category.title is defined %}
+                    {{ bootstrap.title(category.title, { 'icon': 'question-circle', 'subtitle': true  }) }}
+                {% endif %}
+                {% if category.description is defined %}
+                    {{ bootstrap.title(category.description, { 'subtitle': true }) }}
+                {% endif %}
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endspaceless %}
 {% endblock header_widget %}
 
