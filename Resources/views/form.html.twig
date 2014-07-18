@@ -109,7 +109,7 @@
 {% block header_widget %}
 {% spaceless %}
     {% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
-    {#{% set category = {title: 'category.title', description: 'category.description'} %}#}
+    {% set category = {title: 'category.title', description: 'category.description'} %}
     {% if category.title is defined and category.description is defined %}
         <div class="panel-heading">
             <div class="panel-title{% if category.title is defined and category.description is defined %} withSubtitle{% endif %}">
