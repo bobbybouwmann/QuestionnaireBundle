@@ -161,27 +161,10 @@
 {% endspaceless %}
 {% endblock next_widget %}
 
-{% block page_widget %}
-{% spaceless %}
-        <li>
-            <a href="#">2</a>
-        </li>
-{% endspaceless %}
-{% endblock page_widget %}
-
-{% block page_widget_active %}
-{% spaceless %}
-        <li class="active">
-            <a href="#">1</a>
-        </li>
-{% endspaceless %}
-{% endblock page_widget_active %}
-
 {% block pagination_widget %}
 {% spaceless %}
     <ul {{ block('widget_container_attributes') }}>
-        {{ block('page_widget_active') }}
-        {{ block('page_widget') }}
+        {{ knp_pagination_render(pagination) }}
     </ul>
 {% endspaceless %}
 {% endblock pagination_widget %}

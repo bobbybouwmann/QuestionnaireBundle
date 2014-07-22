@@ -9,7 +9,7 @@ services:
     qaraqter_questionnaire.form_type.group:
         class: Qaraqter\QuestionnaireBundle\Form\Type\GroupType
         tags: [{ name: form.type, alias: group }]
-       
+    
     qaraqter_questionnaire.form_type.header:
         class: Qaraqter\QuestionnaireBundle\Form\Type\HeaderType
         tags: [{ name: form.type, alias: header }]
@@ -32,7 +32,7 @@ services:
     
     qaraqter_questionnaire.form_type.pagination:
         class: Qaraqter\QuestionnaireBundle\Form\Type\PaginationType
-        arguments: [@doctrine.orm.default_entity_manager]
+        arguments: [@doctrine.orm.default_entity_manager, @knp_paginator]
         tags: [{ name: form.type, alias: pagination }]
     
     qaraqter_questionnaire.form_extension.form_type:
