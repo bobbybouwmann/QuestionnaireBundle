@@ -133,21 +133,6 @@
 {% endspaceless %}
 {% endblock order_group_widget %}
 
-{% block choice_widget_options %}
-{% spaceless %}
-    {% for group_label, choice in options %}
-        {% if choice is iterable %}
-            <optgroup label="{{ group_label|trans({}, translation_domain) }}">
-                {% set options = choice %}
-                {{ block('choice_widget_options') }}
-            </optgroup>
-        {% else %}
-            <option value="{{ choice.value }}"{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice.label|trans({}, translation_domain) }}</option>
-        {% endif %}
-    {% endfor %}
-{% endspaceless %}
-{% endblock choice_widget_options %}
-
 {% block header_widget %}
 {% spaceless %}
     {% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
