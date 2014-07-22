@@ -38,7 +38,7 @@ class OrderGroupType extends AbstractType
                 'class' => 'PcsAdminBundle:Response',
                 'description' => null,
                 'attr' => array(
-                    'class' => 'table',
+                    'class' => 'form-control',
                     'data-type' => 'scale',
                 ),
             )
