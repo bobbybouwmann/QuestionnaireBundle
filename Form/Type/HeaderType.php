@@ -32,7 +32,10 @@ class HeaderType extends AbstractType
     {
         $resolver->setDefaults(
             array(
+                'mapped' => false,
                 'label' => false,
+                'title' => null,
+                'description' => null,
                 'attr' => array(
                     'class' => 'panel-heading',
                 ),
@@ -45,7 +48,8 @@ class HeaderType extends AbstractType
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-//         var_dump(__FILE__, __LINE__, $view->vars['container']); die;
         $view->vars['container'] = false;
+        $view->vars['title'] = $options['title'];
+        $view->vars['description'] = $options['description'];
     }
 }

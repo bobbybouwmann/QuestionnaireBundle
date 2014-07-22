@@ -32,6 +32,7 @@ class BodyType extends AbstractType
     {
         $resolver->setDefaults(
             array(
+                'mapped' => false,
                 'label' => false,
                 'attr' => array(
                     'class' => 'panel-body answers',
