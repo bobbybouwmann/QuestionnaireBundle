@@ -10,6 +10,10 @@ services:
         class: Qaraqter\QuestionnaireBundle\Form\Type\GroupType
         tags: [{ name: form.type, alias: group }]
        
+    qaraqter_questionnaire.form_type.order_group:
+        class: Qaraqter\QuestionnaireBundle\Form\Type\OrderGroupType
+        tags: [{ name: form.type, alias: order_group }]
+       
     qaraqter_questionnaire.form_type.header:
         class: Qaraqter\QuestionnaireBundle\Form\Type\HeaderType
         tags: [{ name: form.type, alias: header }]

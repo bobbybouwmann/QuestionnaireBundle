@@ -32,6 +32,7 @@ class FooterType extends AbstractType
     {
         $resolver->setDefaults(
             array(
+                'mapped' => false,
                 'label' => false,
                 'attr' => array(
                     'class' => 'panel-footer',

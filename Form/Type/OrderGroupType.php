@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class GroupType extends AbstractType
+class OrderGroupType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -25,7 +25,7 @@ class GroupType extends AbstractType
      */
     public function getName()
     {
-        return 'group';
+        return 'order_group';
     }
 
     /**
@@ -65,8 +65,8 @@ class GroupType extends AbstractType
                         ? $childResponse->getAnswers()->first()
                         : $childResponse->getAnswers(),
                     'label' => $childQuestion->getText(),
-                    'description' => $childQuestion->getDescription(),
                     'choices' => $childQuestion->getAnswers(),
+                    'expanded' => false,
                 )
             );
         }

@@ -11,13 +11,6 @@ use Doctrine\Common\Proxy\Exception\InvalidArgumentException;
 
 class MultipleChoiceType extends AbstractType
 {
-//     private $question;
-
-//     public function __construct(Question $question)
-//     {
-//         $this->question = $question;
-//     }
-
     /**
      * {@inheritdoc}
      */
@@ -43,6 +36,7 @@ class MultipleChoiceType extends AbstractType
             array(
                 'description' => null,
                 'expanded' => true,
+                'mapped' => false,
                 'attr' => array(
                     'class' => 'panel-body inner-question'
                 ),
