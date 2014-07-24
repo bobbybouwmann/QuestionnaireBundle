@@ -56,6 +56,7 @@ class PaginationType extends AbstractType
                 ),
                 'scan' => null,
                 'templateQuestion' => null,
+                'scanCollection' => null,
             )
         );
     }
@@ -82,10 +83,8 @@ class PaginationType extends AbstractType
         $view->vars['container'] = false;
 
         // count total
-        $scans = $this->manager->getRepository('PcsAdminBundle:TemplateQuestion')
-            ->getByTemplate($options['scan']->getTemplate());
         $paginate = $this->paginator->paginate(
-            $scans,
+            $options['scanCollection'],
             $options['templateQuestion']->getPosition() - 1, /*Current page*/
             1, /*limit per page*/
             array('scanID' => $options['scan']->getId())
