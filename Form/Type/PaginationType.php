@@ -19,10 +19,12 @@ class PaginationType extends AbstractType
      * @var ObjectManager $manager
      */
     private $manager;
+    private $paginator;
 
-    public function __construct(ObjectManager $manager)
+    public function __construct(ObjectManager $manager, \Knp\Component\Pager\PaginatorInterface $paginator)
     {
         $this->manager = $manager;
+        $this->paginator = $paginator;
     }
 
     /**
@@ -54,6 +56,7 @@ class PaginationType extends AbstractType
                 ),
                 'scan' => null,
                 'templateQuestion' => null,
+                'scanCollection' => null,
             )
         );
     }
@@ -80,9 +83,16 @@ class PaginationType extends AbstractType
         $view->vars['container'] = false;
 
         // count total
-        $view->vars['total'] = $this->manager->getRepository('PcsAdminBundle:TemplateQuestion')
-            ->countByTemplate($options['scan']->getTemplate());
-
+        $paginate = $this->paginator->paginate(
+            $options['scanCollection'],
+            $options['templateQuestion']->getPosition() - 1, /*Current page*/
+            1, /*limit per page*/
+            array('scanID' => $options['scan']->getId())
+        );
+        $paginate->setTemplate('QaraqterQuestionnaireBundle::twitter_bootstrap_pagination.html.twig');
+        $paginate->setUsedRoute('pcs_scan_homepage');
+        $view->vars['pagination'] = $paginate;
+        //var_dump($view->vars['pagination']);
         // get current position
 
         //@todo
