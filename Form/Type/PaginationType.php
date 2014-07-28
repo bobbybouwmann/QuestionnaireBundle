@@ -85,14 +85,13 @@ class PaginationType extends AbstractType
         // count total
         $paginate = $this->paginator->paginate(
             $options['scanCollection'],
-            $options['templateQuestion']->getPosition() - 1, /*Current page*/
+            $options['templateQuestion']->getPosition(), /*Current page*/
             1, /*limit per page*/
             array('scanID' => $options['scan']->getId())
         );
         $paginate->setTemplate('QaraqterQuestionnaireBundle::twitter_bootstrap_pagination.html.twig');
         $paginate->setUsedRoute('pcs_scan_homepage');
         $view->vars['pagination'] = $paginate;
-        //var_dump($view->vars['pagination']);
         // get current position
 
         //@todo
