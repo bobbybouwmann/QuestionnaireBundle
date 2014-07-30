@@ -39,6 +39,11 @@ services:
         arguments: [@doctrine.orm.default_entity_manager, @knp_paginator]
         tags: [{ name: form.type, alias: pagination }]
 
+    qaraqter_questionnaire.form_type.progress:
+        class: Qaraqter\QuestionnaireBundle\Form\Type\ProgressType
+        arguments: [@doctrine.orm.default_entity_manager]
+        tags: [{ name: form.type, alias: progress }]
+
     qaraqter_questionnaire.form_extension.form_type:
         class: Qaraqter\QuestionnaireBundle\Form\Extension\FormTypeExtension
         tags: [{ name: form.type_extension, alias: form }]
