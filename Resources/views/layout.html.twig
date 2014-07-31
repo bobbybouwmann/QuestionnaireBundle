@@ -26,3 +26,9 @@
         });
     </script>
 {% endblock %}
+
+{% block progress %}
+    {% if form.header is defined and form.header.progress is defined %}
+    {{ form_widget(form.header.progress) }}
+    {% endif %}
+{% endblock %}
