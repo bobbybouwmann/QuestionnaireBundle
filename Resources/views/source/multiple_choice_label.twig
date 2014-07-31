@@ -1,12 +1,19 @@
 {% block multiple_choice_label %}
 {% spaceless %}
-    <div class="panel-heading panel-question-title">
-        <div class="inner-heading mainTitle">
-            <div class="inner-title">{{ label|trans({}, translation_domain) }}</div>
+    {% if form.vars.form.parent is defined
+        and 'order_group' in form.vars.form.parent.vars.block_prefixes
+    %}
+        {# rendered within order_group #}
+        <label for="{{ form.vars.full_name }}" class="col-sm-11">{{ form.vars.label }}</label>
+    {% else %}
+        <div class="panel-heading panel-question-title">
+            <div class="inner-heading mainTitle">
+                <div class="inner-title">{{ label|trans({}, translation_domain) }}</div>
+            </div>
+            <div class="inner-heading subTitle text-muted">
+                <div class="inner-title">{{ description|trans({}, translation_domain) }}</div>
+            </div>
         </div>
-        <div class="inner-heading subTitle text-muted">
-            <div class="inner-title">{{ description|trans({}, translation_domain) }}</div>
-        </div>
-    </div>
+    {% endif %}
 {% endspaceless %}
 {% endblock multiple_choice_label %}

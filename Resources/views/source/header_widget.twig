@@ -1,15 +1,14 @@
 {% block header_widget %}
 {% spaceless %}
     {% import 'bootstrap/bootstrap.functions.html.twig' as bootstrap %}
-    {% set category = {title: 'category.title', description: 'category.description'} %}
-    {% if category.title is defined and category.description is defined %}
+    {% if title is defined and description is defined %}
         <div class="panel-heading panel-category">
             <div class="panel-title{% if category.title is defined and category.description is defined %} withSubtitle{% endif %}">
-                {% if category.title is defined %}
-                    {{ bootstrap.title(category.title, { 'subtitle': true, 'class': 'category-maintitle'  }) }}
+                {% if title is defined %}
+                    {{ bootstrap.title(title, { 'subtitle': true, 'class': 'category-maintitle' }) }}
                 {% endif %}
-                {% if category.description is defined %}
-                    {{ bootstrap.title(category.description, { 'subtitle': true, 'class': 'category-subtitle' }) }}
+                {% if description is defined %}
+                    {{ bootstrap.title(description, { 'subtitle': true, 'class': 'category-subtitle' }) }}
                 {% endif %}
             </div>
         </div>

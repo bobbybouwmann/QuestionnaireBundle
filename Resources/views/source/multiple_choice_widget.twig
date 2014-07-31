@@ -1,13 +1,26 @@
 {% block multiple_choice_widget %}
 {% spaceless %}
-    <div {{ block('widget_container_attributes') }}>
-        <ul class="list-group list-group-striped">
-            {% for child in form %}
-                <li class="list-group-item">
-                    {{ form_row(child) }}
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+    {% if form.vars.form.parent is defined
+        and 'order_group' in form.vars.form.parent.vars.block_prefixes
+    %}
+        {# rendered within order_group #}
+        <div class="col-sm-1">
+            <select {{ block('widget_attributes') }}>
+                {% for choice in form.vars.choices %}
+                    <option data-position="{{ loop.index }}" value="{{ choice.value }}"{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice.label|trans({}, translation_domain) }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    {% else %}
+        <div {{ block('widget_container_attributes') }}>
+            <ul class="list-group list-group-striped">
+                {% for child in form %}
+                    <li class="list-group-item">
+                        {{ form_row(child) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 {% endspaceless %}
 {% endblock multiple_choice_widget %}

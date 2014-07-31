@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-    {% for child in form %}
+            {% for child in form %}
                 <tr class="input-row">
                     <td class="title">{{ child.vars.label|trans({}, translation_domain) }}</td>
                     {% for answer in child %}

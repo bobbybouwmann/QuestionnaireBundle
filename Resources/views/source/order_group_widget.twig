@@ -1,20 +1,14 @@
 {% block order_group_widget %}
 {% spaceless %}
-	<ul class="list-group list-group-striped" id="sortable-list">
-		{%- for child in form -%}
-			<li class="list-group-item">
-				<div class="order">
-					<div class="col-sm-1">
-                        <select {{ block('widget_attributes') }}>
-                            {% for choice in child.vars.choices %}
-                                <option data-position="{{ loop.index }}" value="{{ choice.value }}"{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice.label|trans({}, translation_domain) }}</option>
-                            {% endfor %}
-                        </select>
-					</div>
-					<label for="{{ child.vars.full_name }}" class="col-sm-11">{{ child.vars.label }}</label>
-				</div>
-			</li>
-		{%- endfor -%}
-	</ul>
+    <ul class="list-group list-group-striped" id="sortable-list">
+        {%- for child in form -%}
+            <li class="list-group-item">
+                <div class="order">
+                    {{ form_widget(child) }}
+                    {{ form_label(child) }}
+                </div>
+            </li>
+        {%- endfor -%}
+    </ul>
 {% endspaceless %}
 {% endblock order_group_widget %}
