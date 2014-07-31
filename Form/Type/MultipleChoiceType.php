@@ -51,6 +51,11 @@ class MultipleChoiceType extends AbstractType
     {
         parent::buildView($view, $form, $options);
 
+        $parent = $form->getParent();
+        if ($parent && $parent->getConfig()->getType()->getInnerType() instanceof OrderGroupType) {
+            $view->vars['attr']['class'] = 'form-control';
+        }
+
         $view->vars['description'] = $options['description'];
         $view->vars['checked'] = $view->vars['is_selected'];
     }
