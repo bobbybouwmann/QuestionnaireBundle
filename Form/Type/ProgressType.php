@@ -48,6 +48,7 @@ class ProgressType extends AbstractType
     {
         $resolver->setDefaults(
             array(
+                'mapped' => false,
                 'label' => false,
                 'attr' => array(
                     'class' => 'progress',
