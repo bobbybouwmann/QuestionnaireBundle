@@ -54,5 +54,7 @@
 {% endblock flash %}
 
 {% block progress %}
-    {{ form_widget(form.progress) }}
+    {% if form.progress is defined %}
+        {{ form_widget(form.progress) }}
+    {% endif %}
 {% endblock progress %}
