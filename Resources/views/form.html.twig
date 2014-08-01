@@ -151,7 +151,7 @@
         and 'order_group' in form.vars.form.parent.vars.block_prefixes
     %}
         {# rendered within order_group #}
-        <label for="{{ form.vars.full_name }}" class="col-sm-11">{{ form.vars.label }}</label>
+        <label for="{{ form.vars.full_name }}" class="col-sm-10">{{ form.vars.label }}</label>
     {% else %}
         <div class="panel-heading panel-question-title">
             <div class="inner-heading mainTitle">
@@ -171,7 +171,7 @@
         and 'order_group' in form.vars.form.parent.vars.block_prefixes
     %}
         {# rendered within order_group #}
-        <div class="col-sm-1">
+        <div class="col-sm-2">
             <select {{ block('widget_attributes') }}>
                 {% for choice in form.vars.choices %}
                     <option data-position="{{ loop.index }}" value="{{ choice.value }}"{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice.label|trans({}, translation_domain) }}</option>
