@@ -34,7 +34,7 @@ class PreviousType extends SubmitType
             array(
                 'label' => 'Vorige',
                 'attr' => array(
-                    'class' => 'btn btn-default pull-left',
+                    'class' => 'btn btn-primary pull-left',
                     'data-loading-text' => 'Laden...',
                 ),
             )
