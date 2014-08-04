@@ -87,7 +87,7 @@ class PaginationType extends AbstractType
             $options['scanCollection'],
             $options['templateQuestion']->getPosition(), /*Current page*/
             1, /*limit per page*/
-            array('scanID' => $options['scan']->getId())
+            array('token' => $options['scan']->getToken())
         );
         $paginate->setTemplate('QaraqterQuestionnaireBundle::twitter_bootstrap_pagination.html.twig');
         $paginate->setUsedRoute('pcs_scan_homepage');

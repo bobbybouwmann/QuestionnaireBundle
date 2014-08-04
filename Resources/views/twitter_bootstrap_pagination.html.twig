@@ -3,7 +3,7 @@
  * @file
  * Twitter Bootstrap v3 Sliding pagination control implementation.
  *
- * View that can be used with the pagination module 
+ * View that can be used with the pagination module
  * from the Twitter Bootstrap CSS Toolkit
  * http://getbootstrap.com/components/#pagination
  *
@@ -19,7 +19,7 @@
 
 <!--     {% if previous is defined %}
         <li>
-            <a href="{{ path(route, {'scan': scanID, 'templateQuestion': previous}) }}">&laquo;&nbsp;{{ 'Previous'|trans }}</a>
+            <a href="{{ path(route, {'token': token, 'templateQuestion': previous}) }}">&laquo;&nbsp;{{ 'Previous'|trans }}</a>
         </li>
     {% else %}
         <li class="disabled">
@@ -29,11 +29,11 @@
 
     {% if startPage > 1 %}
         <li>
-            <a href="{{ path(route, {'scan': scanID, 'templateQuestion': 1}) }}">1</a>
+            <a href="{{ path(route, {'token': token, 'templateQuestion': 1}) }}">1</a>
         </li>
         {% if startPage == 3 %}
             <li>
-                <a href="{{ path(route, {'scan': scanID, 'templateQuestion': 2}) }}">2</a>
+                <a href="{{ path(route, {'token': token, 'templateQuestion': 2}) }}">2</a>
             </li>
         {% elseif startPage != 2 %}
         <li class="disabled">
@@ -45,7 +45,7 @@
     {% for page in pagesInRange %}
         {% if page != current %}
             <li>
-                <a href="{{ path(route, {'scan': scanID, 'templateQuestion': page}) }}">{{ page }}</a>
+                <a href="{{ path(route, {'token': token, 'templateQuestion': page}) }}">{{ page }}</a>
             </li>
         {% else %}
             <li class="active">
@@ -63,18 +63,18 @@
                 </li>
             {% else %}
                 <li>
-                    <a href="{{ path(route, {'scan': scanID, 'templateQuestion': (pageCount - 1)}) }}">{{ pageCount -1 }}</a>
+                    <a href="{{ path(route, {'token': token, 'templateQuestion': (pageCount - 1)}) }}">{{ pageCount -1 }}</a>
                 </li>
             {% endif %}
         {% endif %}
         <li>
-            <a href="{{ path(route, {'scan': scanID, 'templateQuestion': (pageCount)}) }}">{{ pageCount }}</a>
+            <a href="{{ path(route, {'token': token, 'templateQuestion': (pageCount)}) }}">{{ pageCount }}</a>
         </li>
     {% endif %}
 
     <!-- {% if next is defined %}
         <li>
-            <a href="{{ path(route, {'scan': scanID, 'templateQuestion': next}) }}">{{ 'Next'|trans }}&nbsp;&raquo;</a>
+            <a href="{{ path(route, {'token': token, 'templateQuestion': next}) }}">{{ 'Next'|trans }}&nbsp;&raquo;</a>
         </li>
     {% else %}
         <li class="disabled">
