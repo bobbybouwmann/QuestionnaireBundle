@@ -57,6 +57,7 @@ class PaginationType extends AbstractType
                 'scan' => null,
                 'templateQuestion' => null,
                 'scanCollection' => null,
+                'route' => null,
             )
         );
     }
@@ -90,7 +91,7 @@ class PaginationType extends AbstractType
             array('token' => $options['scan']->getToken())
         );
         $paginate->setTemplate('QaraqterQuestionnaireBundle::twitter_bootstrap_pagination.html.twig');
-        $paginate->setUsedRoute('pcs_scan_homepage');
+        $paginate->setUsedRoute($options['route']);
         $view->vars['pagination'] = $paginate;
         // get current position
 
