@@ -91,6 +91,7 @@ class PaginationType extends AbstractType
             array('token' => $options['scan']->getToken())
         );
         $paginate->setTemplate('QaraqterQuestionnaireBundle::twitter_bootstrap_pagination.html.twig');
+
         $paginate->setUsedRoute($options['route']);
         $view->vars['pagination'] = $paginate;
         // get current position
