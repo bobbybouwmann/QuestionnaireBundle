@@ -40,6 +40,7 @@ class MultipleChoiceType extends AbstractType
                 'attr' => array(
                     'class' => 'panel-body inner-question'
                 ),
+                'maxAnswers' => null,
             )
         );
     }
@@ -55,7 +56,7 @@ class MultipleChoiceType extends AbstractType
         if ($parent && $parent->getConfig()->getType()->getInnerType() instanceof OrderGroupType) {
             $view->vars['attr']['class'] = 'form-control';
         }
-
+        $view->vars['maxAnswers'] = $options['maxAnswers'];
         $view->vars['description'] = $options['description'];
         $view->vars['checked'] = $view->vars['is_selected'];
     }
