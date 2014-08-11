@@ -180,7 +180,7 @@
         </div>
     {% else %}
         <div {{ block('widget_container_attributes') }}>
-            <ul class="list-group list-group-striped">
+            <ul class="list-group list-group-striped {% if form.child|length > 7 %}multipleView{% endif %}">
                 {% for child in form %}
                     <li class="list-group-item">
                         {{ form_row(child) }}
