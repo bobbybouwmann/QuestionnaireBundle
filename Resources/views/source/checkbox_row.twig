@@ -1,0 +1,10 @@
+{% block checkbox_row %}
+{% spaceless %}
+    <div class="checkbox">
+        <label>
+            {{ form_widget(form) }}
+            {{ label|trans({}, translation_domain) }}
+        </label>
+    </div>
+{% endspaceless %}
+{% endblock checkbox_row %}
