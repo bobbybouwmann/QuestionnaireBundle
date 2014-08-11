@@ -22,7 +22,8 @@
             scaleTable: $('#questionnaire table[data-type="scale"]'),
             other: $('#questionnaire .other'),
             selectRequired: "--- Selecteer een optie ---",
-            uncheckRadio: true
+            uncheckRadio: true,
+            allowedAnswers: {{ form.vars.value.question.allowedAnswers|default(null) }}
         });
     </script>
 {% endblock %}
