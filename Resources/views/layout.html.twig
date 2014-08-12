@@ -23,7 +23,7 @@
             other: $('#questionnaire .other'),
             selectRequired: "--- Selecteer een optie ---",
             uncheckRadio: true,
-            allowedAnswers: {{ form.vars.value.question.allowedAnswers|default(null) }}
+            allowedAnswers: {{ form.vars.value.question.allowedAnswers|default("null") }}
         });
     </script>
 {% endblock %}
