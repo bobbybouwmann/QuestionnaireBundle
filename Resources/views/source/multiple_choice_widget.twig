@@ -13,7 +13,7 @@
         </div>
     {% else %}
         <div {{ block('widget_container_attributes') }}>
-            <ul class="list-group list-group-striped">
+            <ul class="list-group list-group-striped {% if form.children|length > 7 %}multipleLayout{% endif %}">
                 {% for child in form %}
                     <li class="list-group-item">
                         {{ form_row(child) }}
