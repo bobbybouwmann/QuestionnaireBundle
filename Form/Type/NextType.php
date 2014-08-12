@@ -33,6 +33,7 @@ class NextType extends SubmitType
         $resolver->setDefaults(
             array(
                 'label' => 'Volgende',
+                'disabled' => false,
                 'attr' => array(
                     'class' => 'btn btn-primary pull-right',
                     'data-loading-text' => 'Laden...',
@@ -47,5 +48,6 @@ class NextType extends SubmitType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
+        $view->vars['disabled'] = $options['disabled'];
     }
 }
