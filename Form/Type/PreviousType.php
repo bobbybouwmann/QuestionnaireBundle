@@ -33,6 +33,7 @@ class PreviousType extends SubmitType
         $resolver->setDefaults(
             array(
                 'label' => 'Vorige',
+                'disabled' => false,
                 'attr' => array(
                     'class' => 'btn btn-primary pull-left',
                     'data-loading-text' => 'Laden...',
@@ -47,7 +48,6 @@ class PreviousType extends SubmitType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
-
-//         var_dump(__FILE__, __LINE__, $view); die;
+        $view->vars['disabled'] = $options['disabled'];
     }
 }
