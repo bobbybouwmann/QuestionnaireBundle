@@ -3,6 +3,6 @@
     {% if label is empty %}
         {% set label = name|humanize %}
     {% endif %}
-    <button type="{{ type|default('submit') }}" {{ block('button_attributes') }}><i class="fa fa-chevron-left">&nbsp;</i>{{ label|trans({}, translation_domain) }}</button>
+    <button type="{{ type|default('submit') }}" data-type="previous" {{ block('button_attributes') }}><i class="fa fa-chevron-left">&nbsp;</i>{{ label|trans({}, translation_domain) }}</button>
 {% endspaceless %}
 {% endblock previous_widget %}
