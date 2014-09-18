@@ -2,10 +2,10 @@
 {% spaceless %}
     <div class="panel-heading panel-question-title">
         <div class="inner-heading mainTitle">
-            <div class="inner-title">{{ label|trans({}, translation_domain) }}</div>
+            <div class="inner-title">{{ label|trans({}, translation_domain)|raw }}</div>
         </div>
         <div class="inner-heading subTitle text-muted">
-            <div class="inner-title">{{ description|trans({}, translation_domain) }}</div>
+            <div class="inner-title">{{ description|trans({}, translation_domain)|raw }}</div>
         </div>
     </div>
 {% endspaceless %}

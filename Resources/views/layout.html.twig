@@ -17,14 +17,16 @@
 
     <script src="{{ asset('bundles/qaraqterquestionnaire/js/main.js') }}"></script>
     <script>
-        new Questionnaire({
-            checkboxes: $('#questionnaire input[type="radio"], #questionnaire input[type="checkbox"]'),
-            scaleTable: $('#questionnaire table[data-type="scale"]'),
-            other: $('#questionnaire .other'),
-            selectRequired: "--- Selecteer een optie ---",
-            uncheckRadio: true,
-            allowedAnswers: {% if form.vars.value.question.allowedAnswers is defined %}{% if form.vars.value.question.allowedAnswers > 1 %}{{ form.vars.value.question.allowedAnswers }}{% else %}null{% endif %}{% else %}null{% endif %}
-        });
+            $( document ).ready(function($) {
+                new Questionnaire({
+                    checkboxes: $('#questionnaire input[type="radio"], #questionnaire input[type="checkbox"]'),
+                    scaleTable: $('#questionnaire table[data-type="scale"]'),
+                    other: $('#questionnaire .other'),
+                    selectRequired: "--- Selecteer een optie ---",
+                    uncheckRadio: true,
+                    allowedAnswers: {% if form.vars.value.question.allowedAnswers is defined %}{% if form.vars.value.question.allowedAnswers > 1 %}{{ form.vars.value.question.allowedAnswers }}{% else %}null{% endif %}{% else %}null{% endif %}
+                });
+            });
     </script>
 {% endblock %}
 
