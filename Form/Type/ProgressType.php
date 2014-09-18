@@ -76,5 +76,7 @@ class ProgressType extends AbstractType
         $view->vars['total'] = $options['totalQuestions'];
         $view->vars['current'] = $options['templateQuestion']->getPosition();
         $view->vars['percentage'] = $options['completedQuestions'] / ($view->vars['total'] / 100);
+        $view->vars['completedQuestionsCurrent'] = $options['completedQuestions'];
+        $view->vars['completedQuestionsTotal'] = (int)$view->vars['total'];
     }
 }

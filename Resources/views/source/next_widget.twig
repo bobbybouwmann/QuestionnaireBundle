@@ -1,8 +1,18 @@
 {% block next_widget %}
 {% spaceless %}
-    {% if label is empty %}
-        {% set label = name|humanize %}
-    {% endif %}
-    <button type="{{ type|default('submit') }}" data-type="next" {{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}<i class="fa fa-chevron-right fa-aligned-right">&nbsp;</i></button>
+    {%- set current = form.parent.parent.progress.vars.completedQuestionsCurrent|default(0) -%}
+    {%- set total = form.parent.parent.progress.vars.completedQuestionsTotal|default(0) -%}
+    {%- if label is empty -%}
+        {%- set label = name|humanize -%}
+    {%- endif %}
+
+    <button type="{{ type|default('submit') }}" data-type="next" {{ block('button_attributes') }}>
+        {%- if current == (total - 1) -%}
+            Afronden
+        {%- else -%}
+            {{- label|trans({}, translation_domain) -}}
+        {%- endif -%}
+        <i class="fa fa-chevron-right fa-aligned-right">&nbsp;</i>
+    </button>
 {% endspaceless %}
 {% endblock next_widget %}
