@@ -38,6 +38,10 @@ class NextType extends SubmitType
                     'class' => 'btn btn-primary pull-right',
                     'data-loading-text' => 'Laden...',
                 ),
+                'completedQuestions' => null,
+                'totalQuestions' => null,
+                'lastQuestionToFillIn' => null,
+                'currentQuestion' => null,
             )
         );
     }
@@ -48,6 +52,10 @@ class NextType extends SubmitType
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         parent::buildView($view, $form, $options);
+        $view->vars['total'] = $options['totalQuestions'];
         $view->vars['disabled'] = $options['disabled'];
+        $view->vars['completedQuestionsCurrent'] = $options['completedQuestions'];
+        $view->vars['lastQuestionToFillIn'] = $options['lastQuestionToFillIn'];
+        $view->vars['currentQuestion'] = $options['currentQuestion'];
     }
 }

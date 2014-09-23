@@ -1,17 +1,17 @@
 {% block next_widget %}
 {% spaceless %}
-    {#{%- set current = form.parent.parent.progress.vars.completedQuestionsCurrent|default(0) -%}
-    {%- set total = form.parent.parent.progress.vars.completedQuestionsTotal|default(0) -%}#}
+    {%- set current = form.vars.completedQuestionsCurrent|default(0) -%}
+    {%- set total = form.vars.total|default(0) -%}
     {%- if label is empty -%}
         {%- set label = name|humanize -%}
     {%- endif %}
 
     <button type="{{ type|default('submit') }}" data-type="next" {{ block('button_attributes') }}>
-        {#{%- if current == (total - 1) -%}
-            Afronden
-        {%- else -%}#}
-            {{- label|trans({}, translation_domain) -}}
-        {#{%- endif -%}#}
+        {% if current == (total - 1) and form.vars.currentQuestion == form.vars.lastQuestionToFillIn %}
+            {{ 'Afronden'|trans({}, translation_domain) }}
+        {% else %}
+            {{ label|trans({}, translation_domain) }}
+        {% endif %}
         <i class="fa fa-chevron-right fa-aligned-right">&nbsp;</i>
     </button>
 {% endspaceless %}
