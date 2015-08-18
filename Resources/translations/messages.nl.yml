@@ -1,16 +1,15 @@
 layout:
-  question:
-     question: Vraag
-     amount_of: van
-  button:
-     finalize: Afronden
-   select:
-     empty_label: "--- Selecteer een optie ---"
+  form:
+    next:
+      label: Next
+    previous:
+      label: Previous
+    select:
+      empty_label: --- Select an option ---
 
-
-form:
-  type:
-     previous:
-        label: Vorige
-     next:
-        label: Volgende
+  general:
+    button:
+      finalize: Afronden
+    question:
+      amount_of: of
+      question: Question

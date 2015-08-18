@@ -1,7 +1,7 @@
 {% block progress_widget %}
 {% spaceless %}
     <aside id="progress">
-        <h1>{{  "layout.question.question" | trans }} <strong class="green">{{ current }}</strong> {{  "layout.question.amount_of" | trans }} <strong>{{ total }}</strong></h1>
+        <h1>{{  "layout.general.question.question" | trans }} <strong class="green">{{ current }}</strong> {{  "layout.general.question.amount_of" | trans }} <strong>{{ total }}</strong></h1>
         <div class="progress" id="inner-progress">
             <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="{{ percentage|number_format }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ percentage|number_format }}%;"></div>
             <span>{{ percentage|number_format }}%</span>

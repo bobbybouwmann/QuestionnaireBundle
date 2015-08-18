@@ -1,15 +1,15 @@
 layout:
-  question:
-     question: Question
-     amount_of: of
-  button:
-     finalize: Afronden
-   select:
-     empty_label: "--- Select an option ---"
+  form:
+    next:
+      label: Next
+    previous:
+      label: Previous
+    select:
+      empty_label: --- Select an option ---
 
-form:
-  type:
-     previous:
-        label: Previous
-     next:
-        label: Next
+  general:
+    button:
+      finalize: Afronden
+    question:
+      amount_of: of
+      question: Question

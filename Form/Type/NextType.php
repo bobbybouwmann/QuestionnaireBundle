@@ -32,7 +32,7 @@ class NextType extends SubmitType
     {
         $resolver->setDefaults(
             array(
-                'label' => 'form.type.next.label',
+                'label' => 'layout.form.next.label',
                 'disabled' => false,
                 'attr' => array(
                     'class' => 'btn btn-primary pull-right',
