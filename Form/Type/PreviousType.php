@@ -32,7 +32,7 @@ class PreviousType extends SubmitType
     {
         $resolver->setDefaults(
             array(
-                'label' => 'Vorige',
+                'label' => 'form.type.previous.label',
                 'disabled' => false,
                 'attr' => array(
                     'class' => 'btn btn-primary pull-left',

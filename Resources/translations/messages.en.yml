@@ -1,0 +1,6 @@
+form:
+  type:
+     previous:
+        label: Previous
+     next:
+        label: Next
