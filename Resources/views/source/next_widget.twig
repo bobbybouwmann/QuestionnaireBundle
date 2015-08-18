@@ -7,7 +7,7 @@
     {%- endif %}
     <button type="{{ type|default('submit') }}" data-type="next" {{ block('button_attributes') }}>
         {% if form.vars.currentQuestion == form.vars.lastQuestionToFillIn %}
-            {{ 'Afronden'|trans({}, translation_domain) }}
+            {{ 'layout.button.finalize'|trans({}, translation_domain) }}
         {% else %}
             {{ label|trans({}, translation_domain) }}
         {% endif %}

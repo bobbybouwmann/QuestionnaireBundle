@@ -1,3 +1,13 @@
+layout:
+  question:
+     question: Vraag
+     amount_of: van
+  button:
+     finalize: Afronden
+   select:
+     empty_label: "--- Selecteer een optie ---"
+
+
 form:
   type:
      previous:

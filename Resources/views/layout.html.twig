@@ -22,7 +22,7 @@
                     checkboxes: $('#questionnaire input[type="radio"], #questionnaire input[type="checkbox"]'),
                     scaleTable: $('#questionnaire table[data-type="scale"]'),
                     other: $('#questionnaire .other'),
-                    selectRequired: "--- Selecteer een optie ---",
+                    selectRequired: {{ "layout.select.empty_label" |trans }},
                     uncheckRadio: true,
                     allowedAnswers: {% if form.vars.value.question.allowedAnswers is defined %}{% if form.vars.value.question.allowedAnswers > 1 %}{{ form.vars.value.question.allowedAnswers }}{% else %}null{% endif %}{% else %}null{% endif %}
                 });
