@@ -11,5 +11,5 @@ layout:
     button:
       finalize: Afronden
     question:
-      amount_of: of
-      question: Question
+      amount_of: van
+      question: Vraag
