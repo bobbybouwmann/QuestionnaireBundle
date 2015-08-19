@@ -1,11 +1,11 @@
 layout:
   form:
     next:
-      label: Next
+      label: Vorige
     previous:
-      label: Previous
+      label: Volgende
     select:
-      empty_label: --- Select an option ---
+      empty_label: --- Selecteer een optie ---
 
   general:
     button:

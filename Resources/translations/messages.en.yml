@@ -9,7 +9,7 @@ layout:
 
   general:
     button:
-      finalize: Afronden
+      finalize: Finalize
     question:
       amount_of: of
       question: Question
