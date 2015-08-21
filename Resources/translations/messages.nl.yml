@@ -1,11 +1,16 @@
 layout:
   form:
     next:
-      label: Vorige
-    previous:
       label: Volgende
+    previous:
+      label: Vorige
     select:
       empty_label: --- Selecteer een optie ---
+    error:
+      radio: Selecteer één van de verplichte opties.
+      checkbox: Selecteer minimaal één optie.
+      scale: Selecteer één van de verplichte opties.
+      errorRequireFromGroup: U dient tenminste {0} velden in te vullen.
 
   general:
     button:

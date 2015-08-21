@@ -6,6 +6,11 @@ layout:
       label: Previous
     select:
       empty_label: --- Select an option ---
+    error:
+      radio: Select one of the required options.
+      checkbox: Select at least one option.
+      scale: Select one of the required options.
+      errorRequireFromGroup: You should at least fill {0} field(s).
 
   general:
     button:

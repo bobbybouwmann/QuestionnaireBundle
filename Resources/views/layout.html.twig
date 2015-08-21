@@ -24,7 +24,11 @@
                     other: $('#questionnaire .other'),
                     selectRequired: "{{ "layout.form.select.empty_label" |trans }}",
                     uncheckRadio: true,
-                    allowedAnswers: {% if form.vars.value.question.allowedAnswers is defined %}{% if form.vars.value.question.allowedAnswers > 1 %}{{ form.vars.value.question.allowedAnswers }}{% else %}null{% endif %}{% else %}null{% endif %}
+                    allowedAnswers: {% if form.vars.value.question.allowedAnswers is defined %}{% if form.vars.value.question.allowedAnswers > 1 %}{{ form.vars.value.question.allowedAnswers }}{% else %}null{% endif %}{% else %}null{% endif %},
+                    radioErrorText: "{{ "layout.form.error.radio" |trans }}",
+                    checkboxErrorText: "{{ "layout.form.error.checkbox" |trans }}",
+                    scaleErrorText: "{{ "layout.form.error.scale" |trans }}",
+                    errorRequireFromGroup: "{{ "layout.form.error.errorRequireFromGroup" |trans }}"
                 });
             });
     </script>
