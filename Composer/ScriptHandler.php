@@ -14,7 +14,7 @@ namespace Qaraqter\QuestionnaireBundle\Composer;
 use Symfony\Component\ClassLoader\ClassCollectionLoader;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\PhpExecutableFinder;
-use Composer\Script\CommandEvent;
+use Composer\Script\Event;
 use Sensio\Bundle\DistributionBundle\Composer\ScriptHandler as SensioScriptHandler;
 
 class ScriptHandler extends SensioScriptHandler
@@ -22,9 +22,9 @@ class ScriptHandler extends SensioScriptHandler
     /**
      * Installs questionnaire assets in QaraqterQuestionnaireBundle.
      *
-     * @param $event CommandEvent A instance
+     * @param $event Event A instance
      */
-    public static function installAssets(CommandEvent $event)
+    public static function installAssets(Event $event)
     {
         $options = self::getOptions($event);
         $appDir = $options['symfony-app-dir'];
@@ -32,3 +32,4 @@ class ScriptHandler extends SensioScriptHandler
         static::executeCommand($event, $appDir, 'questionnaire:assets:install');
     }
 }
+
