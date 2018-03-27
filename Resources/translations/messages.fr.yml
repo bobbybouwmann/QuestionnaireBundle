@@ -1,0 +1,20 @@
+layout:
+  form:
+    next:
+      label: Suite
+    previous:
+      label: précédent
+    select:
+      empty_label: --- Choisir une option ---
+    error:
+      radio: Sélectionnez l'une des options requises.
+      checkbox: Sélectionnez au moins une option.
+      scale: Sélectionnez l'une des options requises.
+      errorRequireFromGroup: Vous devez au moins renseigner {0} champ (s).
+
+  general:
+    button:
+      finalize: Finaliser
+    question:
+      amount_of: de
+      question: Question
