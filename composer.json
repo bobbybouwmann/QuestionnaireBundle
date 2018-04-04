@@ -5,11 +5,12 @@
 		"symfony/framework-bundle": "^2.7|^3.0|^4.0",
 		"symfony/twig-bundle": "^2.7|^3.0|^4.0",
 		"twig/twig": "^1",
-		"qaraqter/questionnaire" : "dev-feature/symfony-upgrade"
+		"qaraqter/questionnaire" : "dev-master"
 	},
-	"repositories" : [{
+	"repositories" : [
+		{
 			"type" : "vcs",
-			"url" : "https://github.com/nstapelbroek/questionnaire"
+			"url" : "https://github.com/peoplechange360/questionnaire"
 		}
 	],
 	"autoload" : {
