@@ -1,9 +1,9 @@
 layout:
   form:
     next:
-      label: Suite
+      label: Suivant
     previous:
-      label: précédent
+      label: Précédent
     select:
       empty_label: --- Choisir une option ---
     error:
