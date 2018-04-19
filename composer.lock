@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f60c716894ad561991a5cb43364b29b",
+    "content-hash": "d204742e26e7ab93b7a17b96b016597e",
     "packages": [
         {
             "name": "psr/cache",
@@ -1120,7 +1120,7 @@
         },
         {
             "name": "symfony/twig-bundle",
-            "version": "v4.0.7",
+            "version": "v4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bundle.git",
