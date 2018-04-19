@@ -2,7 +2,7 @@
 	"name" : "qaraqter/questionnaire-bundle",
 	"type" : "symfony-bundle",
 	"require" : {
-		"symfony/framework-bundle": "^2.7|^3.0|^4.0",
+		"symfony/framework-bundle": "^2.1|^3.0|^4.0",
 		"symfony/twig-bundle": "^2.7|^3.0|^4.0",
 		"twig/twig": "^1",
 		"qaraqter/questionnaire" : "dev-master"
